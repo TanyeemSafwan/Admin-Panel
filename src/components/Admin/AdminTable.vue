@@ -7,6 +7,7 @@ const tableData = [
     phoneNumber: '+1234567890',
     dateAdded: '2024-10-25',
     status: 'Active',
+    specialty: 'Cardiologist',
   },
   {
     name: 'Jane Smith',
@@ -15,6 +16,7 @@ const tableData = [
     phoneNumber: '+0987654321',
     dateAdded: '2024-10-24',
     status: 'Inactive',
+    specialty: 'Dermatologist',
   },
   {
     name: 'Alice Johnson',
@@ -23,6 +25,7 @@ const tableData = [
     phoneNumber: '+1122334455',
     dateAdded: '2024-10-23',
     status: 'Active',
+    specialty: 'Pediatrician',
   },
   {
     name: 'Bob Brown',
@@ -31,6 +34,7 @@ const tableData = [
     phoneNumber: '+5566778899',
     dateAdded: '2024-10-22',
     status: 'Inactive',
+    specialty: 'Orthopedic Surgeon',
   },
   {
     name: 'Charlie Davis',
@@ -39,6 +43,7 @@ const tableData = [
     phoneNumber: '+6677889900',
     dateAdded: '2024-10-21',
     status: 'Active',
+    specialty: 'Neurologist',
   },
 ]
 </script>
@@ -86,7 +91,17 @@ const tableData = [
         <th>Status</th>
       </tr>
       <tr v-for="table in tableData" :key="table.id">
-        <td>{{ table.name }}</td>
+        <td>
+          <div style="display: flex; gap: 25px">
+            <div style="padding-top: 10px">
+              <font-awesome-icon :icon="['fas', 'user-doctor']" />
+            </div>
+            <div>
+              <div>{{ table.name }}</div>
+              <div style="color: var(--text-gray)">{{ table.specialty }}</div>
+            </div>
+          </div>
+        </td>
         <td>{{ table.id }}</td>
         <td>{{ table.email }}</td>
         <td>{{ table.phoneNumber }}</td>
